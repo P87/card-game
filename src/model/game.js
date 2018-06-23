@@ -22,6 +22,14 @@ export default class Game {
         }
     }
 
+    pickUpPile() {
+        this.pile.cards.forEach(card => {
+            this.playerHand.cards.push(card);
+        });
+
+        this.pile.cards = [];
+    }
+
     get deck() {
         return this.cardDeck;
     }

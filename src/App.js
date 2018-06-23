@@ -16,8 +16,8 @@ export default class App extends Component {
         return <div>
             <Deck game={this.game} />
             <Pile game={this.game} />
-            <PlayerHand game={this.game} title="Your Hand" />
-            <CpuHand game={this.game} title="CPU Hand" />
+            <PlayerHand game={this.game} />
+            <CpuHand game={this.game} />
         </div>
     }
 }

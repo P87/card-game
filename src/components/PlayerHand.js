@@ -11,6 +11,7 @@ export default class PlayerHand extends Component {
         const topPileCard = pile.topCard;
 
         if (
+            topPileCard &&
             Helper.trumpCards().indexOf(card.number) === -1 &&
             Helper.cardValues()[card.number] < Helper.cardValues()[topPileCard.number]
         ) {
@@ -25,9 +26,14 @@ export default class PlayerHand extends Component {
         game.pile.cards.push(card);
     }
 
+    pickUpPile(e) {
+        e.preventDefault();
+        this.props.game.pickUpPile();
+    }
+
     render() {
         return <div>
-            <strong>{this.props.title}</strong>
+            <strong>Your Hand</strong>
             <div>
                 {
                     this.props.game.playerHand.cards.map(card => {
@@ -40,6 +46,7 @@ export default class PlayerHand extends Component {
 
                 }
             </div>
+            <a href="#" onClick={this.pickUpPile.bind(this)}>Pick up pile</a>
         </div>
     }
 }

@@ -11,6 +11,6 @@ export default class Hand {
     }
 
     get topCard() {
-        return this.cards[this.handSize - 1];
+        return this.cards.length > 0 ? this.cards[this.handSize - 1] : null;
     }
 }
