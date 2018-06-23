@@ -10,7 +10,7 @@ export default class Hand {
         return this.cards.length;
     }
 
-    topCard() {
+    get topCard() {
         return this.cards[this.handSize - 1];
     }
 }
