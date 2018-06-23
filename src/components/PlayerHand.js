@@ -10,6 +10,14 @@ export default class PlayerHand extends Component {
         const pile = game.pile;
         const topPileCard = pile.topCard;
 
+        if (Helper.trumpCards().indexOf(card.number) !== -1) {
+            if (card.number === "10") {
+                game.playCard(card);
+                game.deletePile();
+                return;
+            }
+        }
+
         if (
             topPileCard &&
             Helper.trumpCards().indexOf(card.number) === -1 &&

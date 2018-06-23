@@ -1,9 +1,13 @@
 import CardDeck from "./deck";
 import Hand from "./hand";
+import {observable} from 'mobx';
 
 export default class Game {
 
-    playerHand = null;
+    @observable playerHand = null;
+    @observable cardDeck = null;
+    @observable cpuHand = null;
+    @observable pile = null;
 
     constructor() {
         this.cardDeck = new CardDeck();
@@ -28,6 +32,18 @@ export default class Game {
         });
 
         this.pile.cards = [];
+    }
+
+    playCard(card) {
+        const index = this.playerHand.cards.indexOf(card);
+        if (index !== -1) {
+            this.playerHand.cards.splice(index, 1);
+        }
+    }
+
+    deletePile() {
+        this.pile = null;
+        this.pile = new Hand();
     }
 
     get deck() {
