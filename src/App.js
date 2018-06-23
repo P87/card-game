@@ -13,7 +13,6 @@ export default class App extends Component {
     }
 
     render () {
-        // @todo: Change second playerHand to cpuHand
         return <div>
             <Deck game={this.game} />
             <Pile game={this.game} />
