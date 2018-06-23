@@ -1,8 +1,9 @@
-import Card from './Card';
+import Card from './card';
 import {observable, computed} from 'mobx';
+import Helper from './helper';
 
 export default class Deck {
-    cardNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+    cardNumbers = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
     cardSuits = ["♠", "♥", "♦", "♣"];
     @observable cards = [];
 
@@ -20,7 +21,7 @@ export default class Deck {
 
     shuffle(shuffleCount) {
         for(let i = 0; i < shuffleCount; i++) {
-            const rndNo = this.getRandomInt(0, 51);
+            const rndNo = Helper.getRandomInt(0, 51);
             const card = this.cards[i];
             this.cards[i] = this.cards[rndNo];
             this.cards[rndNo] = card;
@@ -31,15 +32,11 @@ export default class Deck {
         return this.cards.pop();
     }
 
+    /*
+     * This is pointless but I just wanted to use computed somewhere.
+     */
     @computed get deckSize() {
         return this.cards.length;
     }
 
-    fullDeck() {
-        return this.cards;
-    }
-
-    getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
 }
