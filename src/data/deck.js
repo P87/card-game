@@ -1,14 +1,12 @@
 import Card from './Card';
+import {observable} from 'mobx';
 
 export default class Deck {
     cardNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-    cardSuits = ["Spades", "Hearts", "Diamonds", "Clubs"];
-    cards = [];
+    cardSuits = ["♠", "♥", "♦", "♣"];
+    @observable cards = [];
 
     constructor() {
-        console.log(this.cardNumbers);
-        console.log(this.cardSuits);
-
         this.createDeck()
     }
 
@@ -18,7 +16,6 @@ export default class Deck {
                 this.cards.push(new Card(suit, number));
             });
         });
-        this.shuffle(52);
     };
 
     shuffle(shuffleCount) {
@@ -28,6 +25,10 @@ export default class Deck {
             this.cards[i] = this.cards[rndNo];
             this.cards[rndNo] = card;
         }
+    }
+
+    takeTopCard() {
+        return this.cards.pop();
     }
 
     fullDeck() {

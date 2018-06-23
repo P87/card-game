@@ -1,0 +1,3 @@
+{
+  "presets": ["mobx", "babel-preset-react"]
+}
