@@ -5,12 +5,13 @@ import {observer} from 'mobx-react';
 export default class Pile extends Component {
 
     render() {
-        const cards = this.props.hand.cards;
+        const game = this.props.game;
+        const cards = game.pile.cards;
         const topCard = cards[cards.length-1];
         return <div>
             <div><strong>Pile</strong></div>
             <div className="card">{topCard.number} {topCard.suit}</div>
-            <div>{this.props.hand.handSize}</div>
+            <div>{game.pile.handSize}</div>
         </div>
     }
 

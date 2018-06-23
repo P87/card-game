@@ -6,7 +6,8 @@ import Helper from '../model/helper';
 export default class PlayerHand extends Component {
 
     playCard(card) {
-        const pile = this.props.pile;
+        const game = this.props.game;
+        const pile = game.pile;
         const topPileCard = pile.topCard;
 
         if (
@@ -17,16 +18,16 @@ export default class PlayerHand extends Component {
             return;
         }
 
-        const index = this.props.hand.cards.indexOf(card);
+        const index = game.playerHand.cards.indexOf(card);
         if (index !== -1) {
-            this.props.hand.cards.splice(index, 1);
+            game.playerHand.cards.splice(index, 1);
         }
-        this.props.pile.cards.push(card);
+        game.pile.cards.push(card);
     }
 
     pickFromDeck(e) {
         e.preventDefault();
-        this.props.hand.cards.push(this.props.deck.takeTopCard());
+        this.props.game.playerHand.cards.push(this.props.deck.takeTopCard());
     }
 
     render() {
@@ -34,7 +35,7 @@ export default class PlayerHand extends Component {
             <strong>{this.props.title}</strong>
             <div>
                 {
-                    this.props.hand.cards.map(card => {
+                    this.props.game.playerHand.cards.map(card => {
                         return <div
                             className={"card " + card.suit}
                             key={card.number + card.suit}
