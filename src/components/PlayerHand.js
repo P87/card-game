@@ -24,7 +24,7 @@ export default class PlayerHand extends Component {
                 {
                     this.props.hand.cards.map(card => {
                         return <div
-                            className="card"
+                            className={"card " + card.suit}
                             key={card.number + card.suit}
                             onClick={this.playCard.bind(this, card)}
                         >{card.number} {card.suit}</div>
