@@ -3,6 +3,8 @@ import Hand from "./hand";
 
 export default class Game {
 
+    playerHand = null;
+
     constructor() {
         this.cardDeck = new CardDeck();
         this.cardDeck.shuffle(52);
@@ -18,18 +20,6 @@ export default class Game {
         for (let i = 0; i < 7; i++) {
             hand.cards.push(this.cardDeck.takeTopCard());
         }
-    }
-
-    playerHand() {
-        return this.playerHand;
-    }
-
-    cpuHand() {
-        return this.cpuHand;
-    }
-
-    pile() {
-        return this.pile;
     }
 
     get deck() {

@@ -25,17 +25,12 @@ export default class CpuHand extends Component {
         game.pile.cards.push(card);
     }
 
-    pickFromDeck(e) {
-        e.preventDefault();
-        this.props.game.playerHand.cards.push(this.props.deck.takeTopCard());
-    }
-
     render() {
         return <div>
             <strong>{this.props.title}</strong>
             <div>
                 {
-                    this.props.game.playerHand.cards.map(card => {
+                    this.props.game.cpuHand.cards.map(card => {
                         return <div
                             className="card"
                             key={card.number + card.suit}

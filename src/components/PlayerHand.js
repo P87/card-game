@@ -25,11 +25,6 @@ export default class PlayerHand extends Component {
         game.pile.cards.push(card);
     }
 
-    pickFromDeck(e) {
-        e.preventDefault();
-        this.props.game.playerHand.cards.push(this.props.deck.takeTopCard());
-    }
-
     render() {
         return <div>
             <strong>{this.props.title}</strong>
@@ -45,7 +40,6 @@ export default class PlayerHand extends Component {
 
                 }
             </div>
-            <a href="#" onClick={this.pickFromDeck.bind(this)}>Pick Card From Deck</a>
         </div>
     }
 }
