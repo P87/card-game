@@ -10,7 +10,7 @@ export default class Pile extends Component {
         return <div>
             <div><strong>Pile</strong></div>
             <div className="card">{topCard.number} {topCard.suit}</div>
-            <div>{cards.length}</div>
+            <div>{this.props.hand.handSize}</div>
         </div>
     }
 

@@ -1,5 +1,5 @@
 import Card from './Card';
-import {observable} from 'mobx';
+import {observable, computed} from 'mobx';
 
 export default class Deck {
     cardNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
@@ -29,6 +29,10 @@ export default class Deck {
 
     takeTopCard() {
         return this.cards.pop();
+    }
+
+    @computed get deckSize() {
+        return this.cards.length;
     }
 
     fullDeck() {

@@ -8,7 +8,7 @@ export default class Deck extends Component {
     render() {
         return <div>
             <div><strong>Deck</strong></div>
-            <div className="deck">{this.props.deck.fullDeck().length}</div>
+            <div className="deck">{this.props.deck.deckSize}</div>
         </div>
     }
 
