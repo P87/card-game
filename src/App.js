@@ -1,3 +1,4 @@
+import CpuHand from './components/CpuHand';
 import Deck from './components/Deck';
 import Game from './model/Game';
 import Pile from './components/Pile';
@@ -17,7 +18,7 @@ export default class App extends Component {
             <Deck game={this.game} />
             <Pile game={this.game} />
             <PlayerHand game={this.game} title="Your Hand" />
-            <PlayerHand game={this.game} title="CPU Hand" />
+            <CpuHand game={this.game} title="CPU Hand" />
         </div>
     }
 }
