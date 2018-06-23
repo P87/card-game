@@ -1,4 +1,4 @@
-import CardDeck from '../data/deck';
+import CardDeck from '../model/deck';
 import React, {Component} from 'react';
 import {observer} from 'mobx-react';
 

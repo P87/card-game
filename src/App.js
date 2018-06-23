@@ -1,6 +1,6 @@
-import CardDeck from "./data/deck";
+import CardDeck from "./model/deck";
 import Deck from './components/Deck';
-import Hand from './data/hand';
+import Hand from './model/hand';
 import Pile from './components/Pile';
 import PlayerHand from './components/PlayerHand';
 import React, {Component} from 'react';
