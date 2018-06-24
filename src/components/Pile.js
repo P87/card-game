@@ -8,9 +8,11 @@ export default class Pile extends Component {
         const game = this.props.game;
         const cards = game.pile.cards;
         const topCard = cards.length > 0 ? cards[cards.length-1] : null;
+        const cardClass = topCard ? topCard.suit : null;
+
         return <div>
             <div><strong>Pile</strong></div>
-            <div className="card">
+            <div className={"card " + cardClass}>
                 {topCard ? topCard.number + " " + topCard.suit : "-" }
             </div>
             <div>{game.pile.handSize}</div>
